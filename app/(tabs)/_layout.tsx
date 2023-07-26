@@ -27,7 +27,7 @@ export default function TabLayout() {
         options={{
           title: 'Tab One',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
+          headerLeft: () => (
             <Link href="/modal" asChild>
               <Pressable>
                 {({ pressed }) => (
@@ -35,7 +35,7 @@ export default function TabLayout() {
                     name="info-circle"
                     size={25}
                     color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    style={{ marginLeft: 15,marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
               </Pressable>
@@ -47,7 +47,7 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="rocket" color={color} />,
         }}
       />
     </Tabs>
