@@ -25,9 +25,9 @@ def handler(event, context):
             'headers': {
                 'Content-Type': 'application/json'
             },
-            'body': json.dumps({
+            'body': {
                 'Companies': company_list
-            })
+            }
         }
     else:
         return {
