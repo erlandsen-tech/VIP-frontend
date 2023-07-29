@@ -1,15 +1,22 @@
 import json
 import logging
 from fmp import search_company_fmp
+from common import get_ssm_client
 
+# TODO get secret from secret store ...
 def handler(event, context):
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    event_json_body = json.loads(event['body'])
     logger.info("Received event: " + json.dumps(event))
     print("Received event: " + json.dumps(event))
+    # fetch secret from aws cred store
+    client = get_ssm_client()
+    response = client.get_parameter(
+        Name='FMP_API_KEY',
+        WithDecryption=True
+    )
     # Handle the event and perform desired operations
-    company_list = search_company_fmp(name=event_json_body['name'], exchange=event_json_body['exchange'])
+    company_list = search_company_fmp(api_key=response['Parameter']['Value'], name=event['body']['name'], exchange=event['body']['exchange'])
     if len(company_list) > 0:
         return {
             'statusCode': 200,  # Set the appropriate status code
@@ -32,9 +39,9 @@ def handler(event, context):
 
 if __name__ == "__main__":
     event = {
-        'body': json.dumps({
+        'body': {
             "name": "Apple",
             "exchange": "NASDAQ"
-        })
+        }
     }
     handler(event, None)

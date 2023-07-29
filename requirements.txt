@@ -6,5 +6,9 @@ idna==3.4
 platformdirs==3.10.0
 requests==2.31.0
 -e git+ssh://git@github.com/erlandsen-tech/VIP-frontend.git@ddbe5203713d1894c1de016384bb2b787fdc65f4#egg=src&subdirectory=amplify/backend/function/searchCompanyByName/src
-urllib3==2.0.4
+urllib3~=1.26.16
 virtualenv==20.24.2
+
+pip~=23.2.1
+setuptools~=67.6.1
+boto3~=1.28.15
