@@ -10,6 +10,7 @@ import {
 import {API, graphqlOperation} from 'aws-amplify';
 import {createTodo} from './src/graphql/mutations';
 import {listTodos} from './src/graphql/queries';
+import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react-native';
 
 import { Amplify } from 'aws-amplify';
 import awsExports from './src/aws-exports';
@@ -51,9 +52,22 @@ const App = () => {
     }
   }
 
+  // retrieves only the current value of 'user' from 'useAuthenticator'
+  const userSelector = (context) => [context.user]
+
+  const SignOutButton = () => {
+    const { user, signOut } = useAuthenticator(userSelector);
+    return (
+        <Pressable onPress={signOut} style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>Hello, {user.username}! Click here to sign out!</Text>
+        </Pressable>
+    )
+  };
+
   return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
+          <SignOutButton />
           <TextInput
               onChangeText={value => setInput('name', value)}
               style={styles.input}
@@ -80,7 +94,7 @@ const App = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App);
 
 const styles = StyleSheet.create({
   container: {width: 400, flex: 1, padding: 20, alignSelf: 'center'},

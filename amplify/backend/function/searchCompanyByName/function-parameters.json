@@ -1,0 +1,6 @@
+{
+  "lambdaLayers": [],
+  "secretNames": [
+    "FPM_API_KEY"
+  ]
+}

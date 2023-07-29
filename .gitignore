@@ -57,3 +57,4 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 .idea
 package-lock.json
+.venv
