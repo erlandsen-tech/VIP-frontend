@@ -1,4 +1,5 @@
 import json
+import os
 import logging
 from fmp import search_company_fmp
 from common import get_ssm_client
@@ -10,9 +11,10 @@ def handler(event, context):
     logger.info("Received event: " + json.dumps(event))
     print("Received event: " + json.dumps(event))
     # fetch secret from aws cred store
+    FMP_API_KEY_NAME = os.environ['FMP_API_KEY']
     client = get_ssm_client()
     response = client.get_parameter(
-        Name='FMP_API_KEY',
+        Name=FMP_API_KEY_NAME,
         WithDecryption=True
     )
     # Handle the event and perform desired operations

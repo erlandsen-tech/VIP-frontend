@@ -9,7 +9,7 @@
     }
   ],
   "secretNames": [
-    "FPM_API_KEY"
+    "FMP_API_KEY"
   ],
   "permissions": {
     "api": {

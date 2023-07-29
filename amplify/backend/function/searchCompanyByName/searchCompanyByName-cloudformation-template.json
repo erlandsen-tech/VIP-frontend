@@ -93,28 +93,6 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "FPM_API_KEY": {
-              "Fn::Join": [
-                "",
-                [
-                  {
-                    "Fn::Sub": [
-                      "/amplify/${appId}/${env}/AMPLIFY_${functionName}_",
-                      {
-                        "appId": {
-                          "Ref": "secretsPathAmplifyAppId"
-                        },
-                        "env": {
-                          "Ref": "env"
-                        },
-                        "functionName": "searchCompanyByName"
-                      }
-                    ]
-                  },
-                  "FPM_API_KEY"
-                ]
-              ]
-            },
             "API_VIPFRONTEND_GRAPHQLAPIIDOUTPUT": {
               "Ref": "apivipfrontendGraphQLAPIIdOutput"
             },
@@ -150,6 +128,28 @@
                       "Fn::Sub": "${apivipfrontendGraphQLAPIIdOutput}:GetAtt:TodoTable:Name"
                     }
                   }
+                ]
+              ]
+            },
+            "FMP_API_KEY": {
+              "Fn::Join": [
+                "",
+                [
+                  {
+                    "Fn::Sub": [
+                      "/amplify/${appId}/${env}/AMPLIFY_${functionName}_",
+                      {
+                        "appId": {
+                          "Ref": "secretsPathAmplifyAppId"
+                        },
+                        "env": {
+                          "Ref": "env"
+                        },
+                        "functionName": "searchCompanyByName"
+                      }
+                    ]
+                  },
+                  "FMP_API_KEY"
                 ]
               ]
             }
