@@ -10,5 +10,25 @@
   ],
   "secretNames": [
     "FPM_API_KEY"
-  ]
+  ],
+  "permissions": {
+    "api": {
+      "vipfrontend": [
+        "Query"
+      ]
+    },
+    "auth": {
+      "vipfrontend5382bf21": [
+        "read"
+      ]
+    },
+    "storage": {
+      "Todo:@model(appsync)": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }
