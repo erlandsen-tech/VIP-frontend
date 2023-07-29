@@ -1,10 +1,6 @@
-import os
 import json
 import logging
 from fmp import search_company_fmp
-
-FMP_API_KEY = os.environ["FMP_API_KEY"]
-
 
 def handler(event, context):
     logger = logging.getLogger()
@@ -32,3 +28,13 @@ def handler(event, context):
             },
             'body': 'Company not found'
         }
+
+
+if __name__ == "__main__":
+    event = {
+        'body': json.dumps({
+            "name": "Apple",
+            "exchange": "NASDAQ"
+        })
+    }
+    handler(event, None)

@@ -46,7 +46,15 @@
   "function": {
     "searchCompanyByName": {
       "build": true,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "vipfrontendfmpApiLayer"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -54,6 +62,48 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "LambdaLayer"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_searchCompanyByName_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchCompanyByName"
+        }
+      ]
+    },
+    "AMPLIFY_function_searchCompanyByName_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchCompanyByName"
+        }
+      ]
+    },
+    "AMPLIFY_function_searchCompanyByName_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "searchCompanyByName"
+        }
+      ]
+    },
+    "AMPLIFY_function_vipfrontendfmpApiLayer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "vipfrontendfmpApiLayer"
+        }
+      ]
+    },
+    "AMPLIFY_function_vipfrontendfmpApiLayer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "vipfrontendfmpApiLayer"
+        }
+      ]
     }
   }
 }

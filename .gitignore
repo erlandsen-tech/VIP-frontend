@@ -58,3 +58,5 @@ amplifytools.xcconfig
 .idea
 package-lock.json
 .venv
+**/__pycache__/
+*.pyc

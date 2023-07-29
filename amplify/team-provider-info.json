@@ -38,6 +38,17 @@
       },
       "api": {
         "vipfrontend": {}
+      },
+      "function": {
+        "searchCompanyByName": {
+          "secretsPathAmplifyAppId": "dxkmdzjdn0aym",
+          "deploymentBucketName": "amplify-vipfrontend-develop-133003-deployment",
+          "s3Key": "amplify-builds/searchCompanyByName-4167374233746a736961-build.zip"
+        },
+        "vipfrontendfmpApiLayer": {
+          "deploymentBucketName": "amplify-vipfrontend-develop-133003-deployment",
+          "s3Key": "amplify-builds/vipfrontendfmpApiLayer-LambdaLayerVersionc862b410-build.zip"
+        }
       }
     }
   }
