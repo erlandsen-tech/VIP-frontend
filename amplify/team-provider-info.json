@@ -43,11 +43,11 @@
         "searchCompanyByName": {
           "secretsPathAmplifyAppId": "dxkmdzjdn0aym",
           "deploymentBucketName": "amplify-vipfrontend-develop-133003-deployment",
-          "s3Key": "amplify-builds/searchCompanyByName-4b345a70785351336b66-build.zip"
+          "s3Key": "amplify-builds/searchCompanyByName-326a46475039342b4c54-build.zip"
         },
         "vipfrontendfmpApiLayer": {
           "deploymentBucketName": "amplify-vipfrontend-develop-133003-deployment",
-          "s3Key": "amplify-builds/vipfrontendfmpApiLayer-LambdaLayerVersionf39847dd-build.zip"
+          "s3Key": "amplify-builds/vipfrontendfmpApiLayer-LambdaLayerVersion8234f7b1-build.zip"
         }
       }
     }

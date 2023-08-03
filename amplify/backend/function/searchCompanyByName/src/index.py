@@ -6,8 +6,6 @@ from common import get_ssm_client
 from dotenv import load_dotenv
 
 
-
-
 # TODO extract and prettify ...
 def handler(event, context):
     logger = logging.getLogger()
