@@ -11,7 +11,7 @@ def handler(event, context):
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     logger.info("Received event: " + json.dumps(event))
-    print("Received event: " + json.dumps(event))
+
     # fetch secret from aws cred store
     fmp_api_key_name = os.environ['FMP_API_KEY']
     client = get_ssm_client()
@@ -29,9 +29,8 @@ def handler(event, context):
             'headers': {
                 'Content-Type': 'application/json'
             },
-            'body': {
-                'Companies': company_list
-            }
+            'body': json.dumps(company_list)
+
         }
     else:
         return {
@@ -44,8 +43,8 @@ def handler(event, context):
 
 
 if __name__ == "__main__":
-    response = {'Parameter': {'Value': os.environ['FMP_API_KEY']}}
     load_dotenv()
+    response = {'Parameter': {'Value': os.environ['FMP_API_KEY']}}
     event = {
         "typeName": "Query",
         "fieldName": "searchCompanyByName",
@@ -55,4 +54,4 @@ if __name__ == "__main__":
             }
         }
     }
-    handler(event, None)
+    print(handler(event, None))

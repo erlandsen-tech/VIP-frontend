@@ -10,8 +10,15 @@ type Todo @model {
     description: String
 }
 
+type ExchangeCompany @model {
+    currency: String
+    exchangeShortName: String
+    name: String
+    stockExchange: String
+    symbol: String
+}
 type Query {
-    searchCompanyByName(input: searchCompanyBody): String @function(name: "searchCompanyByName-${env}")
+    searchCompanyByName(input: searchCompanyBody): [ExchangeCompany] @function(name: "searchCompanyByName-${env}")
 }
 
 input searchCompanyBody {

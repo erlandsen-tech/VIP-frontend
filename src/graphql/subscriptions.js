@@ -37,3 +37,54 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
+export const onCreateExchangeCompany = /* GraphQL */ `
+  subscription OnCreateExchangeCompany(
+    $filter: ModelSubscriptionExchangeCompanyFilterInput
+  ) {
+    onCreateExchangeCompany(filter: $filter) {
+      currency
+      exchangeShortName
+      name
+      stockExchange
+      symbol
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateExchangeCompany = /* GraphQL */ `
+  subscription OnUpdateExchangeCompany(
+    $filter: ModelSubscriptionExchangeCompanyFilterInput
+  ) {
+    onUpdateExchangeCompany(filter: $filter) {
+      currency
+      exchangeShortName
+      name
+      stockExchange
+      symbol
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteExchangeCompany = /* GraphQL */ `
+  subscription OnDeleteExchangeCompany(
+    $filter: ModelSubscriptionExchangeCompanyFilterInput
+  ) {
+    onDeleteExchangeCompany(filter: $filter) {
+      currency
+      exchangeShortName
+      name
+      stockExchange
+      symbol
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;

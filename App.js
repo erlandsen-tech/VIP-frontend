@@ -7,8 +7,7 @@ import {
     Pressable,
     SafeAreaView,
 } from 'react-native';
-import {SearchCompanyComponent} from "./src/components";
-import {API, graphqlOperation} from 'aws-amplify';
+import CompanyList from "./src/components";
 import {withAuthenticator, useAuthenticator} from '@aws-amplify/ui-react-native';
 
 import {Amplify} from 'aws-amplify';
@@ -19,11 +18,8 @@ Amplify.configure(awsExports);
 const initialState = {name: '', description: ''};
 
 const App = () => {
-    const [formState, setFormState] = useState(initialState);
-    const [todos, setTodos] = useState([]);
 
-    useEffect(() => {
-    }, []);
+    const [searchQuery, setSearchQuery] = useState('');
 
     // retrieves only the current value of 'user' from 'useAuthenticator'
     const userSelector = (context) => [context.user]
@@ -43,8 +39,8 @@ const App = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.container}>
-                <Text>Amplify + React Native</Text>
-                    <SearchCompanyComponent/>
+                <Text>Search box</Text>
+                    <CompanyList/>
                 <SignOutButton/>
             </View>
         </SafeAreaView>
@@ -54,7 +50,7 @@ const App = () => {
 export default withAuthenticator(App);
 
 const styles = StyleSheet.create({
-    container: {flex: 1, padding: 20, alignSelf: 'center', justifyContent: 'center'},
+    container: {flex: 1, padding: 20, alignSelf: 'center' },
     input: {backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18},
     buttonContainer: {
         alignSelf: 'center',

@@ -3,7 +3,17 @@
 
 export const searchCompanyByName = /* GraphQL */ `
   query SearchCompanyByName($input: searchCompanyBody) {
-    searchCompanyByName(input: $input)
+    searchCompanyByName(input: $input) {
+      currency
+      exchangeShortName
+      name
+      stockExchange
+      symbol
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
   }
 `;
 export const getTodo = /* GraphQL */ `
@@ -29,6 +39,48 @@ export const listTodos = /* GraphQL */ `
         id
         name
         description
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const getExchangeCompany = /* GraphQL */ `
+  query GetExchangeCompany($id: ID!) {
+    getExchangeCompany(id: $id) {
+      currency
+      exchangeShortName
+      name
+      stockExchange
+      symbol
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listExchangeCompanies = /* GraphQL */ `
+  query ListExchangeCompanies(
+    $filter: ModelExchangeCompanyFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listExchangeCompanies(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        currency
+        exchangeShortName
+        name
+        stockExchange
+        symbol
+        id
         createdAt
         updatedAt
         __typename
