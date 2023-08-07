@@ -1,8 +1,18 @@
 import {useState, Component} from "react";
-import {TextInput, View, Button, FlatList} from "react-native";
-import {List, ListItem} from "react-native-elements";
+import {TextInput, View, Button, FlatList, Text, StyleSheet} from "react-native";
 import {searchCompany} from "./api_calls";
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: 22,
+    },
+    item: {
+        padding: 10,
+        fontSize: 18,
+        height: 44,
+    },
+});
 const searchCompanyFunc = async (name, callback) => {
     try {
         const response = await searchCompany(name);
@@ -46,7 +56,7 @@ class CompanyList extends Component {
         const {searchQuery, companies, error} = this.state;
 
         return (
-            <View>
+            <View style={{flex: 1}}>
                 <TextInput
                     value={searchQuery}
                     onChangeText={this.handleSearchQueryChange}
@@ -55,35 +65,14 @@ class CompanyList extends Component {
                 <Button title="Search" onPress={this.handleSearch}/>
                 {companies && (
                     <FlatList
+                        contentContainerStyle={{paddingBottom: 20}}
                         data={companies}
-                        renderItem={({item}) => (
-                            <ListItem
-                                title={item.name}
-                                subtitle={item.description}
-                            />
-                        )}
-                    />)
-                }
-            </View>);
+                        renderItem={({item}) =>
+                            <Text style={styles.item}>{item.symbol} , {item.name}</Text>}/>
+                )}
+            </View>
+        );
     }
 }
 
 export default CompanyList;
-
-let ex_resp = {
-    "data": {
-        "searchCompanyByName": {
-            "statusCode": 200, "headers": {
-                "Content-Type": "application/json"
-            }, "body": {
-                "Companies": [{
-                    "symbol": "TEST.V",
-                    "name": "FluroTech Ltd.",
-                    "currency": "CAD",
-                    "stockExchange": "TSXV",
-                    "exchangeShortName": "TSX"
-                }]
-            }
-        }
-    }
-};

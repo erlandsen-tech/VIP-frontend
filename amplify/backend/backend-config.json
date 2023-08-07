@@ -49,6 +49,13 @@
       "dependsOn": [
         {
           "attributes": [
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "vipfrontendfmpApiLayer"
+        },
+        {
+          "attributes": [
             "GraphQLAPIIdOutput",
             "GraphQLAPIEndpointOutput",
             "GraphQLAPIKeyOutput"
@@ -62,13 +69,6 @@
           ],
           "category": "auth",
           "resourceName": "vipfrontend5382bf21"
-        },
-        {
-          "attributes": [
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "vipfrontendfmpApiLayer"
         }
       ],
       "providerPlugin": "awscloudformation",

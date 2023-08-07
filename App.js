@@ -38,9 +38,9 @@ const App = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text>Search box</Text>
+            <CompanyList/>
             <View style={styles.container}>
-                <Text>Search box</Text>
-                    <CompanyList/>
                 <SignOutButton/>
             </View>
         </SafeAreaView>
@@ -50,12 +50,8 @@ const App = () => {
 export default withAuthenticator(App);
 
 const styles = StyleSheet.create({
-    container: {flex: 1, padding: 20, alignSelf: 'center' },
-    input: {backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18},
-    buttonContainer: {
-        alignSelf: 'center',
-        backgroundColor: 'black',
-        paddingHorizontal: 8,
-    },
-    buttonText: {color: 'white', padding: 16, fontSize: 18},
+  container: { flex: 1, padding: 20, alignSelf: 'center' },
+  input: { backgroundColor: 'black', marginBottom: 10, padding: 8, fontSize: 18, color: 'white' },
+  buttonContainer: { alignSelf: 'center', backgroundColor: 'white', paddingHorizontal: 8 },
+  buttonText: { color: 'black', padding: 16, fontSize: 18 },
 });

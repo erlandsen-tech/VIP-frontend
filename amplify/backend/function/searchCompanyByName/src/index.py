@@ -17,40 +17,24 @@ def handler(event, context):
     client = get_ssm_client()
     response = client.get_parameter(
         Name=fmp_api_key_name,
-        WithDecryption=True
-    )
+        WithDecryption=True)
+
     # Handle the event and perform desired operation
     company_list = search_company_fmp(api_key=response['Parameter']['Value'],
                                       name=event['arguments']['input'].get('name', None),
                                       exchange=event['arguments']['input'].get('exchange', None))
-    if len(company_list) > 0:
-        return {
-            'statusCode': 200,  # Set the appropriate status code
-            'headers': {
-                'Content-Type': 'application/json'
-            },
-            'body': json.dumps(company_list)
-
-        }
-    else:
-        return {
-            'statusCode': 404,  # Set the appropriate status code
-            'headers': {
-                'Content-Type': 'application/json'
-            },
-            'body': 'Company not found'
-        }
+    return company_list
 
 
 if __name__ == "__main__":
+    #response = {'Parameter': {'Value': os.environ['FMP_API_KEY']}}
     load_dotenv()
-    response = {'Parameter': {'Value': os.environ['FMP_API_KEY']}}
     event = {
         "typeName": "Query",
         "fieldName": "searchCompanyByName",
         "arguments": {
             "input": {
-                "name": "Test"
+                "name": "Autostore"
             }
         }
     }

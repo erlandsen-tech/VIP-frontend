@@ -4,13 +4,8 @@ input AMPLIFY {
     globalAuthRule: AuthRule = { allow: public }
 }
 
-type Todo @model {
-    id: ID!
-    name: String!
-    description: String
-}
 
-type ExchangeCompany @model {
+type ExchangeCompany {
     currency: String
     exchangeShortName: String
     name: String
